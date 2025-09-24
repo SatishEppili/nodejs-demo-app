@@ -2,7 +2,7 @@ name: CI/CD Pipeline - nodejs-demo-app
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]   # 👈 change to "master" if your repo uses master
 
 jobs:
   build:
@@ -34,8 +34,8 @@ jobs:
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}   # 👈 comes from GitHub Secrets
+          password: ${{ secrets.DOCKERHUB_TOKEN }}      # 👈 comes from GitHub Secrets
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo-app:latest .
