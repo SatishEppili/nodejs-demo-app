@@ -29,8 +29,9 @@ jobs:
 
     # Step 4: Build Docker image
     - name: Build Docker image
-      run: docker build -t yourusername/yourapp:latest .
+      run: docker build -t badcaptain29/nodejs-demo-app:latest .
 
     # Step 5: Push Docker image to Docker Hub
     - name: Push Docker image
-      run: docker push yourusername/yourapp:latest
+      run: docker push badcaptain29/nodejs-demo-app:latest
+
