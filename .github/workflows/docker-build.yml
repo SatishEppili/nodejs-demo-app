@@ -19,14 +19,14 @@ jobs:
         run: |
           echo "Checking Docker Hub secrets..."
           if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then
-            echo "❌ DOCKER_USERNAME missing"
+            echo "DOCKER_USERNAME missing"
             exit 1
           fi
           if [ -z "${{ secrets.DOCKER_PASSWORD }}" ]; then
-            echo "❌ DOCKER_PASSWORD missing"
+            echo "DOCKER_PASSWORD missing"
             exit 1
           fi
-          echo "✅ Both secrets found"
+          echo "Both secrets found"
 
       # 3️⃣ Log in to Docker Hub
       - name: Log in to Docker Hub
@@ -46,5 +46,6 @@ jobs:
         run: |
           echo "Pushing Docker image to Docker Hub..."
           docker push ${{ secrets.DOCKER_USERNAME }}/nodejs-demo-app:latest
+
 
 
